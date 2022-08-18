@@ -3,7 +3,7 @@ import 'package:streams_guide/basic_operators.dart';
 
 /// Stream Functions
 Stream<int> getNumbers() async* {
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 10; i++) {
     yield i;
     await Future.delayed(Duration(seconds: 1));
   }
@@ -45,5 +45,9 @@ void main() async {
   final operators = BasicOperators();
 
   //operators.expand(getNumbers());
-  operators.map(getNumbers());
+  // operators.map(getNumbers());
+  // operators.skip(getNumbers());
+  // operators.skipWhile(getNumbers());
+  // operators.take(getNumbers());
+  operators.takeWhile(getNumbers());
 }
